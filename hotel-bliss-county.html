@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hotel Bliss County – Fine Casual Dining | Dhule</title>
+<meta name="description" content="Hotel Bliss County – An unfussy eatery with a creative soul. Regional flavours of meat, seafood & vegetarian dishes. Live music, full bar, kids game zone. MIDC, Dhule."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --gold: #c9a85c;
+    --gold-light: #e8c87a;
+    --amber: #d4802a;
+    --cream: #f5ede0;
+    --warm-white: #fdf8f2;
+    --dark: #0f0d0a;
+    --dark-2: #1a1510;
+    --dark-3: #251f17;
+    --dark-4: #312820;
+    --muted: #8a7a68;
+    --text: #e8ddd0;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;font-size:16px}
+  body{background:var(--dark);color:var(--text);font-family:'Jost',sans-serif;overflow-x:hidden;line-height:1.6}
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.2}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar{width:6px}
+  ::-webkit-scrollbar-track{background:var(--dark)}
+  ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:1.2rem 5%;display:flex;align-items:center;justify-content:space-between;transition:all .4s ease}
+  nav.scrolled{background:rgba(15,13,10,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,92,0.15);padding:.8rem 5%}
+  .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--gold);letter-spacing:0.04em}
+  .nav-logo span{display:block;font-size:.65rem;font-weight:300;letter-spacing:.2em;color:var(--muted);font-family:'Jost',sans-serif;text-transform:uppercase;margin-top:-2px}
+  .nav-links{display:flex;gap:2.2rem;list-style:none}
+  .nav-links a{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:color .3s;font-weight:500}
+  .nav-links a:hover{color:var(--gold)}
+  .nav-cta{background:var(--gold);color:var(--dark);padding:.55rem 1.4rem;font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;transition:all .3s}
+  .nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+  .hamburger span{width:24px;height:2px;background:var(--gold);transition:all .3s}
+
+  /* HERO */
+  #hero{height:100vh;min-height:680px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:
+    radial-gradient(ellipse at 30% 60%, rgba(180,90,20,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 30%, rgba(201,168,92,0.10) 0%, transparent 55%),
+    linear-gradient(160deg,#0f0d0a 0%,#1e160e 40%,#0f0d0a 100%);
+  }
+  .hero-pattern{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a85c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+  .hero-glow{position:absolute;bottom:-100px;left:50%;transform:translateX(-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(212,128,42,0.25) 0%,transparent 70%);pointer-events:none}
+  .hero-content{position:relative;z-index:2;max-width:800px;padding:0 1.5rem}
+  .hero-tag{display:inline-block;border:1px solid rgba(201,168,92,0.4);color:var(--gold);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;padding:.4rem 1.2rem;border-radius:2px;margin-bottom:1.5rem;animation:fadeUp .8s ease both}
+  .hero-title{font-size:clamp(3rem,7vw,6rem);color:var(--cream);line-height:1.05;margin-bottom:.5rem;animation:fadeUp .8s .1s ease both}
+  .hero-title em{color:var(--gold);font-style:italic}
+  .hero-sub{font-size:clamp(.9rem,2vw,1.15rem);color:var(--muted);font-weight:300;max-width:560px;margin:0 auto 2.5rem;letter-spacing:.02em;animation:fadeUp .8s .2s ease both}
+  .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .3s ease both}
+  .btn-primary{background:var(--gold);color:var(--dark);padding:.8rem 2.2rem;font-weight:600;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;transition:all .3s;border:2px solid var(--gold)}
+  .btn-primary:hover{background:transparent;color:var(--gold);transform:translateY(-2px)}
+  .btn-outline{border:2px solid rgba(201,168,92,0.5);color:var(--gold);padding:.8rem 2.2rem;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;transition:all .3s}
+  .btn-outline:hover{border-color:var(--gold);background:rgba(201,168,92,0.08);transform:translateY(-2px)}
+  .hero-hours{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);animation:fadeUp .8s .5s ease both;white-space:nowrap}
+  .hero-hours::before,.hero-hours::after{content:'—';margin:0 .6rem;opacity:.5}
+  .scroll-line{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--gold));animation:scrollPulse 2s ease infinite}
+
+  /* HIGHLIGHTS STRIP */
+  #highlights{background:var(--dark-2);border-top:1px solid rgba(201,168,92,0.12);border-bottom:1px solid rgba(201,168,92,0.12);padding:1.5rem 5%;overflow:hidden}
+  .highlights-track{display:flex;gap:3rem;align-items:center;animation:marquee 25s linear infinite;white-space:nowrap;width:max-content}
+  .highlight-item{display:flex;align-items:center;gap:.6rem;color:var(--muted);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+  .highlight-item span{font-size:1.1rem}
+  .highlight-dot{width:4px;height:4px;background:var(--gold);border-radius:50%;opacity:.5;flex-shrink:0}
+
+  /* SECTION SHARED */
+  section{padding:6rem 5%}
+  .section-label{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;display:flex;align-items:center;gap:.8rem}
+  .section-label::before{content:'';display:inline-block;width:28px;height:1px;background:var(--gold)}
+  .section-title{font-size:clamp(2rem,4vw,3.2rem);color:var(--cream);margin-bottom:1.2rem}
+  .section-sub{color:var(--muted);font-size:.95rem;max-width:580px;line-height:1.8}
+  .gold-divider{width:60px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:1.5rem 0}
+
+  /* ABOUT */
+  #about{background:var(--dark)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1200px;margin:0 auto}
+  .about-visual{position:relative}
+  .about-img-wrap{background:var(--dark-3);border-radius:4px;overflow:hidden;aspect-ratio:4/5;position:relative;border:1px solid rgba(201,168,92,0.12)}
+  .about-img-fill{width:100%;height:100%;background:
+    radial-gradient(ellipse at 40% 40%,rgba(212,128,42,0.3) 0%,transparent 60%),
+    linear-gradient(135deg,#1e160e,#2a1f12);
+    display:flex;align-items:center;justify-content:center}
+  .about-img-text{font-family:'Cormorant Garamond',serif;font-size:5rem;opacity:.15;color:var(--gold)}
+  .about-badge{position:absolute;bottom:-20px;right:-20px;background:var(--gold);color:var(--dark);padding:1.2rem 1.5rem;border-radius:4px;text-align:center}
+  .about-badge .num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;line-height:1;display:block}
+  .about-badge .lbl{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;display:block;margin-top:.2rem}
+  .about-features{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem}
+  .about-feat{display:flex;align-items:flex-start;gap:.7rem;padding:.8rem;border:1px solid rgba(201,168,92,0.1);border-radius:4px;transition:border-color .3s}
+  .about-feat:hover{border-color:rgba(201,168,92,0.35)}
+  .about-feat-icon{font-size:1.3rem;margin-top:.1rem}
+  .about-feat h4{font-family:'Jost',sans-serif;font-size:.78rem;font-weight:600;color:var(--cream);letter-spacing:.04em}
+  .about-feat p{font-size:.72rem;color:var(--muted);margin-top:.15rem}
+
+  /* MENU */
+  #menu{background:var(--dark-2)}
+  .menu-wrap{max-width:1100px;margin:0 auto}
+  .menu-tabs{display:flex;gap:.5rem;margin-bottom:3rem;flex-wrap:wrap}
+  .menu-tab{padding:.55rem 1.3rem;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(201,168,92,0.2);border-radius:2px;cursor:pointer;color:var(--muted);transition:all .3s;background:none}
+  .menu-tab.active,.menu-tab:hover{background:var(--gold);color:var(--dark);border-color:var(--gold)}
+  .menu-panel{display:none}
+  .menu-panel.active{display:block}
+  .menu-category{margin-bottom:2.5rem}
+  .menu-cat-title{font-size:1rem;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:500;border-bottom:1px solid rgba(201,168,92,0.15);padding-bottom:.6rem;margin-bottom:1rem}
+  .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.6rem}
+  .menu-item{display:flex;justify-content:space-between;align-items:baseline;padding:.7rem .9rem;border-radius:3px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);transition:all .3s;gap:1rem}
+  .menu-item:hover{background:rgba(201,168,92,0.06);border-color:rgba(201,168,92,0.2)}
+  .menu-item-name{font-size:.85rem;color:var(--text);font-weight:400;flex:1}
+  .menu-item-desc{font-size:.72rem;color:var(--muted);margin-top:.2rem}
+  .menu-item-price{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;white-space:nowrap;flex-shrink:0}
+
+  /* FEATURES (Service Options) */
+  #services{background:var(--dark);padding:5rem 5%}
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;max-width:1100px;margin:3rem auto 0}
+  .service-card{text-align:center;padding:2rem 1rem;border:1px solid rgba(201,168,92,0.1);border-radius:4px;transition:all .4s}
+  .service-card:hover{border-color:var(--gold);background:rgba(201,168,92,0.04);transform:translateY(-4px)}
+  .service-icon{font-size:2rem;margin-bottom:.8rem}
+  .service-title{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);font-weight:500}
+  .service-desc{font-size:.7rem;color:var(--muted);margin-top:.3rem}
+
+  /* KIDS ZONE */
+  #kidszone{background:var(--dark-2)}
+  .kids-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1200px;margin:3rem auto 0}
+  .kids-visual{background:var(--dark-3);border-radius:4px;overflow:hidden;border:1px solid rgba(201,168,92,0.12);aspect-ratio:5/4;position:relative}
+  .kids-visual-fill{width:100%;height:100%;background:
+    linear-gradient(135deg,rgba(255,165,0,0.2),rgba(0,180,100,0.15),rgba(255,80,80,0.1));
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem}
+  .kids-visual-fill .emoji-big{font-size:4rem;animation:bounce 2s ease infinite}
+  .kids-visual-fill p{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--cream);opacity:.7}
+  .kids-features{display:flex;flex-direction:column;gap:1rem;margin-top:2rem}
+  .kids-feat{display:flex;align-items:center;gap:1rem;padding:.8rem 1rem;background:rgba(255,255,255,0.02);border-left:3px solid var(--gold);border-radius:0 4px 4px 0}
+  .kids-feat span:first-child{font-size:1.2rem}
+  .kids-feat span:last-child{font-size:.83rem;color:var(--text)}
+  .kids-cta-wrap{margin-top:2.5rem}
+
+  /* MOCKTAILS */
+  #mocktails{background:var(--dark)}
+  .cocktail-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;max-width:1100px;margin:3rem auto 0}
+  .cocktail-card{padding:1.5rem;border:1px solid rgba(201,168,92,0.12);border-radius:4px;background:linear-gradient(135deg,rgba(201,168,92,0.04),transparent);transition:all .4s;position:relative;overflow:hidden}
+  .cocktail-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(to bottom,var(--gold),transparent)}
+  .cocktail-card:hover{border-color:rgba(201,168,92,0.3);transform:translateY(-3px)}
+  .cocktail-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--cream);margin-bottom:.4rem}
+  .cocktail-ing{font-size:.72rem;color:var(--muted);line-height:1.6;font-style:italic}
+  .cocktail-price{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);margin-top:.8rem}
+
+  /* RESERVATION */
+  #reservation{background:linear-gradient(135deg,var(--dark-3),var(--dark));position:relative;overflow:hidden}
+  #reservation::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(ellipse,rgba(201,168,92,0.07) 0%,transparent 70%);pointer-events:none}
+  .res-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;align-items:flex-start;max-width:1100px;margin:0 auto;position:relative}
+  .res-info h3{font-size:clamp(1.8rem,3vw,2.5rem);color:var(--cream);margin-bottom:1rem}
+  .res-info p{color:var(--muted);font-size:.9rem;line-height:1.8;margin-bottom:2rem}
+  .res-detail{display:flex;align-items:flex-start;gap:.8rem;margin-bottom:1.2rem}
+  .res-detail-icon{font-size:1.2rem;margin-top:.1rem}
+  .res-detail-text strong{display:block;font-size:.8rem;color:var(--cream);letter-spacing:.06em;font-weight:600}
+  .res-detail-text span{font-size:.78rem;color:var(--muted)}
+  .res-form{background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,92,0.12);border-radius:6px;padding:2.5rem}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+  .form-group{display:flex;flex-direction:column;gap:.4rem}
+  .form-group.full{grid-column:1/-1}
+  .form-group label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,92,0.15);border-radius:3px;padding:.7rem 1rem;color:var(--text);font-family:'Jost',sans-serif;font-size:.85rem;outline:none;transition:border-color .3s;width:100%}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+  .form-group select option{background:var(--dark-3)}
+  .form-group textarea{resize:vertical;min-height:100px}
+  .form-submit{width:100%;background:var(--gold);color:var(--dark);padding:.9rem;font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border:none;border-radius:3px;cursor:pointer;transition:all .3s;margin-top:.5rem;font-family:'Jost',sans-serif}
+  .form-submit:hover{background:var(--gold-light);transform:translateY(-2px)}
+  .form-note{font-size:.7rem;color:var(--muted);text-align:center;margin-top:.8rem}
+
+  /* INFO STRIP */
+  #infostrip{background:var(--gold);padding:3rem 5%}
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;max-width:1100px;margin:0 auto}
+  .info-block{text-align:center}
+  .info-block .icon{font-size:1.6rem;display:block;margin-bottom:.5rem}
+  .info-block h4{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--dark);font-weight:700;margin-bottom:.3rem}
+  .info-block p{font-size:.78rem;color:rgba(15,13,10,0.7);font-weight:500;line-height:1.5}
+
+  /* FOOTER */
+  footer{background:var(--dark-2);border-top:1px solid rgba(201,168,92,0.12);padding:3.5rem 5% 2rem}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;max-width:1100px;margin:0 auto;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,0.06)}
+  .footer-brand .logo{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);font-weight:700;margin-bottom:.3rem}
+  .footer-brand .tagline{font-size:.75rem;color:var(--muted);letter-spacing:.06em;margin-bottom:1.2rem}
+  .footer-brand p{font-size:.82rem;color:var(--muted);line-height:1.8;max-width:320px}
+  .footer-social{display:flex;gap:.8rem;margin-top:1.5rem}
+  .social-btn{width:36px;height:36px;border:1px solid rgba(201,168,92,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:all .3s;color:var(--muted)}
+  .social-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,92,0.08)}
+  .footer-col h5{font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;font-weight:600}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+  .footer-links a{font-size:.82rem;color:var(--muted);transition:color .3s}
+  .footer-links a:hover{color:var(--cream)}
+  .footer-contact-item{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:.8rem}
+  .footer-contact-item .ic{font-size:.95rem;margin-top:.1rem;color:var(--gold)}
+  .footer-contact-item span{font-size:.8rem;color:var(--muted);line-height:1.6}
+  .footer-bottom{max-width:1100px;margin:1.5rem auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+  .footer-bottom p{font-size:.72rem;color:var(--muted)}
+  .payment-icons{display:flex;gap:.5rem;align-items:center}
+  .pay-badge{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:3px;padding:.25rem .5rem;font-size:.65rem;color:var(--muted);font-weight:600;letter-spacing:.04em}
+
+  /* TOAST */
+  .toast{position:fixed;bottom:2rem;right:2rem;background:var(--gold);color:var(--dark);padding:1rem 1.5rem;border-radius:4px;font-weight:600;font-size:.85rem;z-index:9999;transform:translateY(100px);opacity:0;transition:all .4s;pointer-events:none}
+  .toast.show{transform:translateY(0);opacity:1}
+
+  /* ANIMATIONS */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes scrollPulse{0%,100%{opacity:0}50%{opacity:1}}
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .nav-links,.nav-cta{display:none}
+    .hamburger{display:flex}
+    .about-grid,.kids-grid,.res-grid{grid-template-columns:1fr;gap:3rem}
+    .footer-grid{grid-template-columns:1fr 1fr}
+    .about-badge{right:10px;bottom:-15px}
+  }
+  @media(max-width:600px){
+    section{padding:4rem 5%}
+    .form-row{grid-template-columns:1fr}
+    .footer-grid{grid-template-columns:1fr}
+    .hero-title{font-size:2.8rem}
+    .cocktail-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">Hotel Bliss County<span>Fine Casual Dining · Dhule</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#kidszone">Kids Zone</a></li>
+    <li><a href="#mocktails">Mocktails</a></li>
+    <li><a href="#reservation">Contact</a></li>
+  </ul>
+  <a href="#reservation" class="nav-cta">Reserve a Table</a>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,13,10,0.98);z-index:999;display:none;flex-direction:column;align-items:center;justify-content:center;gap:2rem;">
+  <a href="#about" onclick="closeMenu()" style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--cream)">About</a>
+  <a href="#menu" onclick="closeMenu()" style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--cream)">Menu</a>
+  <a href="#kidszone" onclick="closeMenu()" style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--cream)">Kids Zone</a>
+  <a href="#mocktails" onclick="closeMenu()" style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--cream)">Mocktails</a>
+  <a href="#reservation" onclick="closeMenu()" class="btn-primary">Reserve a Table</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Est. MIDC, Dhule · Open Daily 11AM – 11PM</div>
+    <h1 class="hero-title">Where Every Meal<br>Becomes a <em>Memory</em></h1>
+    <p class="hero-sub">An unfussy eatery with a creative soul — regional flavours of meat, seafood & vegetarian dishes, a full bar, live music & a kids game zone.</p>
+    <div class="hero-btns">
+      <a href="#reservation" class="btn-primary">Reserve a Table</a>
+      <a href="#menu" class="btn-outline">Explore Menu</a>
+    </div>
+  </div>
+  <div class="hero-hours">Dine-In &nbsp;·&nbsp; Takeaway &nbsp;·&nbsp; Delivery &nbsp;·&nbsp; Drive-Through</div>
+  <div class="scroll-line"></div>
+</section>
+
+<!-- HIGHLIGHTS MARQUEE -->
+<div id="highlights">
+  <div class="highlights-track" id="marqueeTrack">
+    <div class="highlight-item"><span>🔥</span> Fireplace</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🎵</span> Live Music</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🍺</span> Great Beer Selection</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>☕</span> Great Coffee</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🍷</span> Fine Wine List</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🎮</span> Kids Game Zone</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🌿</span> Halal & Vegan Options</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>📶</span> Free Wi-Fi</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🏆</span> All You Can Eat</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🅿️</span> Free Parking</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>♿</span> Wheelchair Accessible</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🐕</span> Dogs Allowed Outside</div>
+    <div class="highlight-dot"></div>
+    <!-- Duplicate for seamless loop -->
+    <div class="highlight-item"><span>🔥</span> Fireplace</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🎵</span> Live Music</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🍺</span> Great Beer Selection</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>☕</span> Great Coffee</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🍷</span> Fine Wine List</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🎮</span> Kids Game Zone</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🌿</span> Halal & Vegan Options</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>📶</span> Free Wi-Fi</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🏆</span> All You Can Eat</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🅿️</span> Free Parking</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>♿</span> Wheelchair Accessible</div>
+    <div class="highlight-dot"></div>
+    <div class="highlight-item"><span>🐕</span> Dogs Allowed Outside</div>
+    <div class="highlight-dot"></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual reveal">
+      <div class="about-img-wrap">
+        <div class="about-img-fill">
+          <div class="about-img-text">🍽</div>
+        </div>
+      </div>
+      <div class="about-badge">
+        <span class="num">11</span>
+        <span class="lbl">Hours Daily</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">A Creative Space Where Food & Soul Meet</h2>
+      <div class="gold-divider"></div>
+      <p class="section-sub">Hotel Bliss County is more than a restaurant — it's an experience. Nestled in MIDC, Dhule, we bring you a cozy, romantic, and upmarket setting where regional flavours come alive. From sizzling starters to handcrafted mocktails, every dish is made with heart.</p>
+      <p class="section-sub" style="margin-top:1rem">Whether you're here for a family dinner, a romantic evening, a birthday bash, or a quick lunch — Bliss County is your place.</p>
+      <div class="about-features">
+        <div class="about-feat"><div class="about-feat-icon">🌿</div><div><h4>Halal Certified</h4><p>All meat dishes are halal</p></div></div>
+        <div class="about-feat"><div class="about-feat-icon">🍃</div><div><h4>Vegan Options</h4><p>Thoughtfully curated</p></div></div>
+        <div class="about-feat"><div class="about-feat-icon">🎉</div><div><h4>Private Dining</h4><p>Exclusive room available</p></div></div>
+        <div class="about-feat"><div class="about-feat-icon">🌙</div><div><h4>Late Night Food</h4><p>Open till 11 PM daily</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="menu-wrap">
+    <div class="reveal">
+      <div class="section-label">What We Serve</div>
+      <h2 class="section-title">Our Menu</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="menu-tabs reveal">
+      <button class="menu-tab active" onclick="showTab('veg')">🌿 Vegetarian</button>
+      <button class="menu-tab" onclick="showTab('nonveg')">🍗 Non-Vegetarian</button>
+      <button class="menu-tab" onclick="showTab('bev')">☕ Beverages</button>
+      <button class="menu-tab" onclick="showTab('snacks')">🥪 Snacks</button>
+      <button class="menu-tab" onclick="showTab('desserts')">🍮 Desserts</button>
+    </div>
+
+    <!-- VEG -->
+    <div class="menu-panel active" id="tab-veg">
+      <div class="menu-category">
+        <div class="menu-cat-title">Soups</div>
+        <div class="menu-grid">
+          <div class="menu-item"><div><div class="menu-item-name">Manchow Soup</div></div><div class="menu-item-price">₹90</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Hot & Sour Soup</div></div><div class="menu-item-price">₹90</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Lemon Coriander Soup</div></div><div class="menu-item-price">₹90</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Tomato Corn Basil Soup</div></div><div class="menu-item-price">₹120</div></div>
+        </div>
+      </div>
+      <div class="menu-category">
+        <div class="menu-cat-title">Starters</div>
+        <div class="menu-grid">
+          <div class="menu-item"><div><div class="menu-item-name">Paneer Schezwan</div></div><div class="menu-item-price">₹220</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Paneer Salt & Pepper</div></div><div class="menu-item-price">₹210</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Paneer Satay</div></div><div class="menu-item-price">₹240</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Paneer Chilly Dry</div><div class="menu-item-desc">Crispy deep fried paneer with salt & pepper</div></div><div class="menu-item-price">₹260</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Paneer Peri Peri</div><div class="menu-item-desc">Paneer flavour with peanut butter sauce</div></div><div class="menu-item-price">₹230</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Veg Bullet</div><div class="menu-item-desc">Spicy red sauce in sizzling base</div></div><div class="menu-item-price">₹220</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Crispy Corn Chilli Pepper</div></div><div class="menu-item-price">₹210</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Potato Chilli</div></div><div class="menu-item-price">₹190</div></div>
+        </div>
+      </div>
+      <div class="menu-category">
+        <div class="menu-cat-title">Main Course</div>
+        <div class="menu-grid">
+          <div class="menu-item"><div><div class="menu-item-name">Four Treasure Vegetables in Black Bean Sauce</div></div><div class="menu-item-price">₹280</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Exotic Vegetables in Chilly Basil Sauce</div></div><div class="menu-item-price">₹250</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Vegetables Dumpling in Chilly Soya Sauce</div></div><div class="menu-item-price">₹270</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Sweet & Sour Vegetables with Crispy Noodles</div></div><div class="menu-item-price">₹240</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Veg Balls in Hot Garlic Sauce</div></div><div class="menu-item-price">₹210</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Paneer Chilly with Gravy</div></div><div class="menu-item-price">₹260</div></div>
+        </div>
+      </div>
+      <div class="menu-category">
+        <div class="menu-cat-title">Rice & Noodles</div>
+        <div class="menu-grid">
+          <div class="menu-item"><div><div class="menu-item-name">Veg Fried Rice</div></div><div class="menu-item-price">₹160</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Veg Schezwan Fried Rice</div></div><div class="menu-item-price">₹170</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Veg Triple Schezwan Rice</div></div><div class="menu-item-price">₹200</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Veg Burn Garlic Fried Rice</div></div><div class="menu-item-price">₹190</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Veg Hakka Noodles</div></div><div class="menu-item-price">₹170</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Veg Schezwan Noodles</div></div><div class="menu-item-price">₹190</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Veg Burn Garlic Noodles</div></div><div class="menu-item-price">₹200</div></div>
+        </div>
+      </div>
+      <div class="menu-category">
+        <div class="menu-cat-title">Sizzlers</div>
+        <div class="menu-grid">
+          <div class="menu-item"><div><div class="menu-item-name">Manchurian Hakka Noodles Sizzler</div><div class="menu-item-desc">English veggies, hakka noodles with manchurian dumpling</div></div><div class="menu-item-price">₹320</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Paneer Chilly Sizzler</div><div class="menu-item-desc">English veggies, french fries, fried rice, paneer chilly gravy</div></div><div class="menu-item-price">₹340</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NON-VEG -->
+    <div class="menu-panel" id="tab-nonveg">
+      <div class="menu-category">
+        <div class="menu-cat-title">Soups</div>
+        <div class="menu-grid">
+          <div class="menu-item"><div><div class="menu-item-name">Chicken Manchow Soup</div></div><div class="menu-item-price">₹110</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Chicken Hot & Sour Soup</div></div><div class="menu-item-price">₹110</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Chicken Lemon Coriander Soup</div></div><div class="menu-item-price">₹110</div></div>
+        </div>
+      </div>
+      <div class="menu-category">
+        <div class="menu-cat-title">Starters</div>
+        <div class="menu-grid">
+          <div class="menu-item"><div><div class="menu-item-name">Wok Tossed Chicken</div><div class="menu-item-desc">Deep fried chicken in Hunan style</div></div><div class="menu-item-price">₹270</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Chilly Chicken</div></div><div class="menu-item-price">₹260</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Drums of Heaven</div><div class="menu-item-desc">Chilly Plum Sauce, Hong Kong Style / Schezwan Style</div></div><div class="menu-item-price">₹300 / 280 / 260</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Crispy Chilly Fish</div><div class="menu-item-desc">Deep fried fish in schezwan flavour</div></div><div class="menu-item-price">₹370</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Hunan Prawns</div><div class="menu-item-desc">Golden fried prawns in Hunan style</div></div><div class="menu-item-price">₹420</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Kung Pao Chicken</div><div class="menu-item-desc">Whole peanuts in schezwan chilly style</div></div><div class="menu-item-price">₹330</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Salt & Pepper Chicken</div></div><div class="menu-item-price">₹290</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Chicken Satay</div><div class="menu-item-desc">Peanut butter sauce</div></div><div class="menu-item-price">₹260</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Emerald Chicken Lollipop</div><div class="menu-item-desc">Crispy deep fried sticks, served in emerald style</div></div><div class="menu-item-price">₹320</div></div>
+        </div>
+      </div>
+      <div class="menu-category">
+        <div class="menu-cat-title">Main Course</div>
+        <div class="menu-grid">
+          <div class="menu-item"><div><div class="menu-item-name">Prawns in Oyster Sauce</div></div><div class="menu-item-price">₹400</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Chicken Thai Curry (Green / Red)</div></div><div class="menu-item-price">₹350</div></div>
+        </div>
+      </div>
+      <div class="menu-category">
+        <div class="menu-cat-title">Rice & Noodles</div>
+        <div class="menu-grid">
+          <div class="menu-item"><div><div class="menu-item-name">Chicken Fried Rice</div></div><div class="menu-item-price">₹210</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Chicken Schezwan Fried Rice</div></div><div class="menu-item-price">₹230</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Chicken Burn Garlic Fried Rice</div></div><div class="menu-item-price">₹250</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Chicken Triple Schezwan Rice</div></div><div class="menu-item-price">₹230</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Chicken Hakka Noodles</div></div><div class="menu-item-price">₹220</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Chicken Schezwan Noodles</div></div><div class="menu-item-price">₹240</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Chicken Burn Garlic Noodles</div></div><div class="menu-item-price">₹230</div></div>
+        </div>
+      </div>
+      <div class="menu-category">
+        <div class="menu-cat-title">Sizzlers</div>
+        <div class="menu-grid">
+          <div class="menu-item"><div><div class="menu-item-name">Manchurian Hakka Noodles Sizzler</div><div class="menu-item-desc">English veggies, hakka noodles, chicken manchurian dumpling</div></div><div class="menu-item-price">₹360</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Chicken Chilly Sizzler</div><div class="menu-item-desc">English veggies, french fries, fried rice, chicken chilly gravy</div></div><div class="menu-item-price">₹400</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BEVERAGES -->
+    <div class="menu-panel" id="tab-bev">
+      <div class="menu-category">
+        <div class="menu-cat-title">Hot Beverages</div>
+        <div class="menu-grid">
+          <div class="menu-item"><div><div class="menu-item-name">Coffee</div></div><div class="menu-item-price">₹40–50</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Tea</div></div><div class="menu-item-price">₹40</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Leche Leche Coffee</div></div><div class="menu-item-price">₹80</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Green Tea</div></div><div class="menu-item-price">₹50</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Lemon Tea</div></div><div class="menu-item-price">₹70</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Black Coffee</div></div><div class="menu-item-price">₹40–50</div></div>
+        </div>
+      </div>
+      <div class="menu-category">
+        <div class="menu-cat-title">Cold Beverages</div>
+        <div class="menu-grid">
+          <div class="menu-item"><div><div class="menu-item-name">Cold Coffee</div></div><div class="menu-item-price">₹100</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Cold Coffee with Ice Cream</div></div><div class="menu-item-price">₹120</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Lemon Ice Tea</div></div><div class="menu-item-price">₹60</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Fresh Lime Soda</div></div><div class="menu-item-price">₹60</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Butter Milk – Masala / Plain</div></div><div class="menu-item-price">₹80 / ₹90</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Lassi – Sweet / Salted</div></div><div class="menu-item-price">₹100</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Mango Lassi</div></div><div class="menu-item-price">₹140</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Milk Shake – Vanilla / Mango / Chocolate</div></div><div class="menu-item-price">₹100</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Fresh Juices – Orange / Pineapple / Watermelon</div></div><div class="menu-item-price">₹110</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Soft Drink</div></div><div class="menu-item-price">₹30</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Mineral Water</div></div><div class="menu-item-price">₹30</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SNACKS -->
+    <div class="menu-panel" id="tab-snacks">
+      <div class="menu-category">
+        <div class="menu-cat-title">Light Bites & Snacks</div>
+        <div class="menu-grid">
+          <div class="menu-item"><div><div class="menu-item-name">Garlic Bread</div></div><div class="menu-item-price">₹80–90</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Veg Sandwich</div></div><div class="menu-item-price">₹80</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Veg Grilled Sandwich</div></div><div class="menu-item-price">₹120</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Cheese Chilly Toast</div></div><div class="menu-item-price">₹150</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Cheese Club Sandwich (S/W)</div></div><div class="menu-item-price">₹150</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Veg Club Sandwich (S/W)</div></div><div class="menu-item-price">₹120</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESSERTS -->
+    <div class="menu-panel" id="tab-desserts">
+      <div class="menu-category">
+        <div class="menu-cat-title">Ice Cream & Desserts</div>
+        <div class="menu-grid">
+          <div class="menu-item"><div><div class="menu-item-name">Sizzling Brownie with Ice Cream</div><div class="menu-item-desc">Warm brownie served sizzling with ice cream</div></div><div class="menu-item-price">₹199</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Caramel Custard</div></div><div class="menu-item-price">₹140</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Fried Ice Cream</div></div><div class="menu-item-price">₹120</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Gulab Jamun – Gulab / Black</div></div><div class="menu-item-price">₹70 / ₹90</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Ice Cream</div></div><div class="menu-item-price">₹90</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Gulab Jamun with Ice Cream</div></div><div class="menu-item-price">₹120</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div style="text-align:center;max-width:700px;margin:0 auto" class="reveal">
+    <div class="section-label" style="justify-content:center">How We Serve You</div>
+    <h2 class="section-title">Every Way You'd Like to Dine</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal"><div class="service-icon">🍽️</div><div class="service-title">Dine-In</div><div class="service-desc">Cozy table service with full ambiance</div></div>
+    <div class="service-card reveal"><div class="service-icon">📦</div><div class="service-title">Takeaway</div><div class="service-desc">Ready when you are, packed fresh</div></div>
+    <div class="service-card reveal"><div class="service-icon">🛵</div><div class="service-title">Delivery</div><div class="service-desc">No-contact delivery to your door</div></div>
+    <div class="service-card reveal"><div class="service-icon">🚗</div><div class="service-title">Drive-Through</div><div class="service-desc">Quick and convenient curbside</div></div>
+    <div class="service-card reveal"><div class="service-icon">🌿</div><div class="service-title">Outdoor Seating</div><div class="service-desc">Fresh air dining experience</div></div>
+    <div class="service-card reveal"><div class="service-icon">🏠</div><div class="service-title">Private Dining</div><div class="service-desc">Exclusive room for special events</div></div>
+  </div>
+</section>
+
+<!-- KIDS ZONE -->
+<section id="kidszone">
+  <div class="kids-grid">
+    <div class="reveal">
+      <div class="section-label">Family Fun</div>
+      <h2 class="section-title">A World of Fun for <em style="color:var(--gold);font-style:italic">Little Ones</em></h2>
+      <div class="gold-divider"></div>
+      <p class="section-sub">Let the kids explore our vibrant indoor game zone while you relax and enjoy your meal. Featuring slides, climbing frames, ball pits, and more — it's a paradise for children!</p>
+      <div class="kids-features">
+        <div class="kids-feat"><span>🎈</span><span>Perfect for Birthday Parties</span></div>
+        <div class="kids-feat"><span>🪑</span><span>High Chairs & Changing Tables Available</span></div>
+        <div class="kids-feat"><span>🍟</span><span>Dedicated Kids' Menu</span></div>
+        <div class="kids-feat"><span>👨‍👩‍👧</span><span>Family Friendly Atmosphere</span></div>
+        <div class="kids-feat"><span>♿</span><span>Wheelchair Accessible Seating & Toilet</span></div>
+      </div>
+      <div class="kids-cta-wrap">
+        <a href="#reservation" class="btn-primary">Plan a Birthday Party 🎂</a>
+      </div>
+    </div>
+    <div class="kids-visual reveal">
+      <div class="kids-visual-fill">
+        <div class="emoji-big">🎮</div>
+        <p>Indoor Game Zone</p>
+        <p style="font-size:.85rem;opacity:.5;font-family:'Jost',sans-serif;margin-top:.3rem">On Premises</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOCKTAILS -->
+<section id="mocktails">
+  <div style="text-align:center;max-width:700px;margin:0 auto" class="reveal">
+    <div class="section-label" style="justify-content:center">Bar & Beverages</div>
+    <h2 class="section-title">Handcrafted Mocktails</h2>
+    <div class="gold-divider" style="margin:1.5rem auto"></div>
+    <p class="section-sub" style="margin:0 auto">All mocktails crafted fresh — each one a small celebration. ₹199 each.</p>
+  </div>
+  <div class="cocktail-grid">
+    <div class="cocktail-card reveal"><div class="cocktail-name">Kiss Me Red</div><div class="cocktail-ing">Orange Juice · Pineapple Juice · Sugar Syrup · Grenadine · Sprite</div><div class="cocktail-price">₹199</div></div>
+    <div class="cocktail-card reveal"><div class="cocktail-name">Morning Due</div><div class="cocktail-ing">Green Apple Syrup · Mint Syrup · Lime Juice · Pineapple Juice · Sprite · Peach Crush</div><div class="cocktail-price">₹199</div></div>
+    <div class="cocktail-card reveal"><div class="cocktail-name">Lady in Pink</div><div class="cocktail-ing">Pineapple Juice · Orange Juice · Strawberry Juice · Peach Crush</div><div class="cocktail-price">₹199</div></div>
+    <div class="cocktail-card reveal"><div class="cocktail-name">Indiana</div><div class="cocktail-ing">Guava Juice · Orange Juice · Chat Masala · Chilly</div><div class="cocktail-price">₹199</div></div>
+    <div class="cocktail-card reveal"><div class="cocktail-name">Cosmo Twist</div><div class="cocktail-ing">Cranberry Juice · Indian Masala</div><div class="cocktail-price">₹199</div></div>
+    <div class="cocktail-card reveal"><div class="cocktail-name">Strawberry Delight</div><div class="cocktail-ing">Strawberry Crush · Vanilla Ice Cream · Cranberry Juice</div><div class="cocktail-price">₹199</div></div>
+    <div class="cocktail-card reveal"><div class="cocktail-name">Fruit Punch</div><div class="cocktail-ing">Strawberry Crush · Raspberry Syrup · Dry Fruits · Lime</div><div class="cocktail-price">₹199</div></div>
+    <div class="cocktail-card reveal"><div class="cocktail-name">Strawberry Martini</div><div class="cocktail-ing">Strawberry Crush · Ice Cream · Cranberry Juice · Peach Syrup · Lime</div><div class="cocktail-price">₹199</div></div>
+    <div class="cocktail-card reveal"><div class="cocktail-name">Carribain Refresh</div><div class="cocktail-ing">Mango Juice · Pineapple Juice · Orange Juice · Grenadine</div><div class="cocktail-price">₹199</div></div>
+    <div class="cocktail-card reveal"><div class="cocktail-name">Litchi Sagoon</div><div class="cocktail-ing">Litchi Juice · Kiwi Syrup · Lime</div><div class="cocktail-price">₹199</div></div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<div id="infostrip">
+  <div class="info-grid">
+    <div class="info-block"><span class="icon">📍</span><h4>Find Us</h4><p>MIDC, Near Laling Toll Plaza<br>Dhule, Maharashtra</p></div>
+    <div class="info-block"><span class="icon">📞</span><h4>Call / WhatsApp</h4><p><a href="tel:9503953951" style="color:var(--dark);font-weight:600">9503953951</a></p></div>
+    <div class="info-block"><span class="icon">🕐</span><h4>Hours</h4><p>Daily: 11:00 AM – 11:00 PM<br>Open 7 days a week</p></div>
+    <div class="info-block"><span class="icon">💳</span><h4>Payments</h4><p>Cards · UPI · Google Pay · NFC<br>Debit & Credit Accepted</p></div>
+  </div>
+</div>
+
+<!-- RESERVATION -->
+<section id="reservation">
+  <div class="res-grid">
+    <div class="reveal">
+      <div class="section-label">Make a Booking</div>
+      <h3>Reserve Your<br><em style="color:var(--gold);font-style:italic">Perfect Table</em></h3>
+      <div class="gold-divider"></div>
+      <p>Reservations are recommended, especially for weekends and live music nights. Walk-ins are always welcome!</p>
+      <div class="res-detail">
+        <div class="res-detail-icon">📍</div>
+        <div class="res-detail-text"><strong>Address</strong><span>Hotel Bliss County, MIDC, Near Laling Toll Plaza, Dhule</span></div>
+      </div>
+      <div class="res-detail">
+        <div class="res-detail-icon">📞</div>
+        <div class="res-detail-text"><strong>Phone / WhatsApp</strong><span><a href="tel:9503953951" style="color:var(--gold)">9503953951</a></span></div>
+      </div>
+      <div class="res-detail">
+        <div class="res-detail-icon">🕐</div>
+        <div class="res-detail-text"><strong>Opening Hours</strong><span>Daily 11:00 AM – 11:00 PM</span></div>
+      </div>
+      <div class="res-detail">
+        <div class="res-detail-icon">🐕</div>
+        <div class="res-detail-text"><strong>Pet Policy</strong><span>Dogs allowed in outdoor seating area</span></div>
+      </div>
+    </div>
+    <div class="res-form reveal">
+      <h4 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);margin-bottom:1.5rem">Book a Table</h4>
+      <form onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group"><label>Your Name</label><input type="text" placeholder="Full Name" required/></div>
+          <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXXXXXXX" required/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Date</label><input type="date" required/></div>
+          <div class="form-group"><label>Time</label><input type="time" required/></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Guests</label>
+            <select><option>1 Guest</option><option>2 Guests</option><option>3–4 Guests</option><option>5–8 Guests</option><option>9–15 Guests</option><option>16+ Guests (Group)</option></select>
+          </div>
+          <div class="form-group"><label>Occasion</label>
+            <select><option>Casual Dining</option><option>Birthday</option><option>Anniversary</option><option>Business Lunch</option><option>Live Music Night</option><option>Private Event</option></select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group full"><label>Special Requests</label><textarea placeholder="Dietary requirements, seating preferences, celebrations..."></textarea></div>
+        </div>
+        <button type="submit" class="form-submit">Confirm My Reservation ✦</button>
+        <p class="form-note">Or call us directly at <a href="tel:9503953951" style="color:var(--gold)">9503953951</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Hotel Bliss County</div>
+      <div class="tagline">Fine Casual Dining · Dhule, Maharashtra</div>
+      <p>An unfussy eatery with a creative soul — where regional flavours, warm hospitality, live music and family fun come together under one roof.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn">📘</a>
+        <a href="#" class="social-btn">📸</a>
+        <a href="https://wa.me/919503953951" class="social-btn">💬</a>
+        <a href="tel:9503953951" class="social-btn">📞</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#menu">Full Menu</a></li>
+        <li><a href="#kidszone">Kids Zone</a></li>
+        <li><a href="#mocktails">Mocktails</a></li>
+        <li><a href="#reservation">Reservations</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact Us</h5>
+      <div class="footer-contact-item"><span class="ic">📍</span><span>MIDC, Near Laling Toll Plaza, Dhule, Maharashtra</span></div>
+      <div class="footer-contact-item"><span class="ic">📞</span><span><a href="tel:9503953951" style="color:var(--gold)">9503953951</a></span></div>
+      <div class="footer-contact-item"><span class="ic">🕐</span><span>Daily: 11 AM – 11 PM</span></div>
+      <div class="footer-contact-item"><span class="ic">🅿️</span><span>Free parking available on-site & street</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Hotel Bliss County, Dhule. All rights reserved.</p>
+    <div class="payment-icons">
+      <span class="pay-badge">VISA</span>
+      <span class="pay-badge">MASTERCARD</span>
+      <span class="pay-badge">UPI</span>
+      <span class="pay-badge">G PAY</span>
+      <span class="pay-badge">NFC</span>
+    </div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">🎉 Reservation request sent! We'll call you to confirm.</div>
+
+<script>
+// NAV SCROLL
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60)
+})
+
+// MOBILE MENU
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu')
+  m.style.display=m.style.display==='flex'?'none':'flex'
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').style.display='none'
+}
+
+// MENU TABS
+function showTab(id){
+  document.querySelectorAll('.menu-tab').forEach((t,i)=>{
+    const tabs=['veg','nonveg','bev','snacks','desserts']
+    t.classList.toggle('active',tabs[i]===id)
+  })
+  document.querySelectorAll('.menu-panel').forEach(p=>p.classList.remove('active'))
+  document.getElementById('tab-'+id).classList.add('active')
+}
+
+// REVEAL ON SCROLL
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}})
+},{threshold:0.1})
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el))
+
+// FORM SUBMIT
+function submitForm(e){
+  e.preventDefault()
+  const t=document.getElementById('toast')
+  t.classList.add('show')
+  setTimeout(()=>t.classList.remove('show'),4000)
+  e.target.reset()
+}
+</script>
+</body>
+</html>
